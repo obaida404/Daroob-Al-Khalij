@@ -139,25 +139,24 @@
     lastScroll = y;
   }, { passive: true });
 
-  // Subtle reveal motion. Content must never stay hidden if the observer fails,
-  // so anything still unrevealed is forced visible after a short grace period.
-  if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches && 'IntersectionObserver' in window) {
-    const revealItems = document.querySelectorAll('.home-intro,.solutions,.home-products,.vision-band,.brand-rail,.about-story,.principles,.vision-feature,.docs-note,.service-detail,.service-extras,.catalogue-grid,.sourcing,.sector-intro,.project-note,.contact-layout,.contact-close,.page-end,.solution-card,.product-row,.process-steps article,.about-feature,.sector-card,.catalogue-card,.supplier-logos figure');
+  // Subtle reveal motion. The hidden state is opt-in (JS adds .reveal-pending),
+  // so if this block never runs the content simply stays visible.
+  const revealItems = document.querySelectorAll('.home-intro,.solutions,.home-products,.vision-band,.brand-rail,.about-story,.principles,.vision-feature,.docs-note,.service-detail,.service-extras,.catalogue-grid,.sourcing,.sector-intro,.project-note,.contact-layout,.contact-close,.page-end,.solution-card,.product-row,.process-steps article,.about-feature,.sector-card,.catalogue-card,.supplier-logos figure');
+  const animate = !window.matchMedia('(prefers-reduced-motion: reduce)').matches && 'IntersectionObserver' in window;
+  if (animate) {
     const show = (item) => item.classList.add('revealed');
     revealItems.forEach((item) => {
-      item.classList.add('reveal');
-      // Anything already on screen at load is shown immediately.
       const r = item.getBoundingClientRect();
-      if (r.top < window.innerHeight && r.bottom > 0) show(item);
+      const onScreen = r.top < window.innerHeight && r.bottom > 0;
+      if (!onScreen) item.classList.add('reveal-pending');
     });
     const observer = new IntersectionObserver((entries) => entries.forEach((entry) => {
       if (entry.isIntersecting) { show(entry.target); observer.unobserve(entry.target); }
     }), { threshold: 0.05, rootMargin: '0px 0px -8% 0px' });
     revealItems.forEach((item) => observer.observe(item));
-    // Fail-safe: never leave content invisible.
-    setTimeout(() => revealItems.forEach(show), 2500);
-  } else {
-    document.querySelectorAll('.reveal').forEach((item) => item.classList.add('revealed'));
+    // Fail-safe: if the observer never fires, un-hide everything.
+    setTimeout(() => revealItems.forEach((item) => { show(item); item.classList.remove('reveal-pending'); }), 2500);
+    window.addEventListener('load', () => setTimeout(() => revealItems.forEach((item) => { show(item); item.classList.remove('reveal-pending'); }), 1200), { once: true });
   }
 
   // A manually controllable, slowly rotating home hero keeps the landing page alive.
