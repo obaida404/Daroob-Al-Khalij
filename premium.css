@@ -114,10 +114,10 @@ html[dir="rtl"] .hero h1{min-height:0;line-height:1.22;margin:28px 0 20px}
 .contact-close h2 em{color:#20211f!important}
 html[dir="rtl"] .contact-close h2 em{color:#20211f!important}
 
-/* Fix RTL hero: flip columns so text is on the right, image on the left */
-html[dir="rtl"] .hero{grid-template-columns:1.04fr 1fr}
-html[dir="rtl"] .hero-copy{grid-column:2}
-html[dir="rtl"] .hero-visual{grid-column:1}
+/* Fix RTL hero: image on the left, Arabic text on the right */
+html[dir="rtl"] .hero{grid-template-columns:1fr 1.04fr}
+html[dir="rtl"] .hero-copy{grid-column:1}
+html[dir="rtl"] .hero-visual{grid-column:2}
 /* In RTL, flex-start = right side — align content to the right edge */
 html[dir="rtl"] .hero-copy{display:flex;flex-direction:column;align-items:flex-start}
 html[dir="rtl"] .hero .eyebrow,html[dir="rtl"] .hero-note,html[dir="rtl"] .hero-actions{justify-content:flex-start}
