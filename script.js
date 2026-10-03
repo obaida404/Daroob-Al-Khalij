@@ -17,6 +17,7 @@
         <div class="nav-dropdown"><div class="nav-menu-wrap"><a class="nav-link" href="products.html" data-page-link="products" data-en="Products" data-ar="منتجاتنا">Products</a><button class="submenu-toggle" aria-label="Show product pages" aria-expanded="false">⌄</button></div><div class="dropdown-panel"><a href="products.html#fire-products" data-en="Fire protection" data-ar="الحماية من الحريق">Fire protection</a><a href="products.html#screening" data-en="Security & screening" data-ar="الأمن والتفتيش">Security &amp; screening</a><a href="products.html#ppe" data-en="PPE & industrial safety" data-ar="معدات الوقاية والسلامة الصناعية">PPE &amp; industrial safety</a></div></div>
         <a class="nav-link" href="sectors.html" data-page-link="sectors" data-en="Sectors" data-ar="القطاعات">Sectors</a>
         <a class="nav-link" href="contact.html" data-page-link="contact" data-en="Contact" data-ar="تواصل معنا">Contact</a>
+        <a class="nav-link" href="products.html#catalog" data-page-link="catalog" data-en="Catalog" data-ar="الكتالوج">Catalog</a>
       </nav>
       <div class="header-actions"><button class="language-toggle" type="button" aria-label="Switch to Arabic"><span class="lang-label">العربية</span><span class="lang-globe" aria-hidden="true">◎</span></button><a class="button button-dark header-cta" href="contact.html"><span data-en="Discuss a project" data-ar="ناقش مشروعك">Discuss a project</span><span aria-hidden="true">↗</span></a></div>
     </header>`);

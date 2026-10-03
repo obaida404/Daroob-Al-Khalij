@@ -466,3 +466,15 @@ html[dir="rtl"] .hero .eyebrow,html[dir="rtl"] .hero-note,html[dir="rtl"] .hero-
 .wa-float:hover{transform:scale(1.08);box-shadow:0 6px 16px rgba(0,0,0,.3)}
 .wa-float svg{width:28px;height:28px}
 @media(max-width:720px){.wa-float{bottom:18px;right:18px;width:50px;height:50px}.wa-float svg{width:24px;height:24px}}
+
+/* Catalog download section */
+.catalog-download{background:var(--ink);color:#fff;text-align:center;padding:100px 5%}
+.catalog-download .section-kicker{justify-content:center}
+.catalog-download .section-kicker span{color:#fff}
+.catalog-download .kicker-rule{background:rgba(255,255,255,.3)}
+.catalog-download h2{font-size:clamp(28px,4vw,44px);margin:18px 0 14px}
+.catalog-download p{max-width:600px;margin:0 auto 32px;color:rgba(255,255,255,.7);font-size:16px;line-height:1.7}
+.catalog-actions{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+.catalog-actions .button-accent{background:var(--accent);color:#fff}
+.catalog-actions .button-outline{border-color:rgba(255,255,255,.4);color:#fff}
+.catalog-actions .button-outline:hover{background:rgba(255,255,255,.1)}
