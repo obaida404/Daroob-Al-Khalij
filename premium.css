@@ -102,7 +102,7 @@ html[dir="rtl"] .hero{direction:rtl}
 .map-frame{height:280px;aspect-ratio:16/9;overflow:hidden;border:1px solid #d7d8d2;background:#e6e5df}
 .map-frame iframe{width:100%;height:100%;display:block;border:0}
 .sourcing{position:relative;isolation:isolate;overflow:hidden}
-.sourcing:before{content:"";position:absolute;z-index:0;pointer-events:none;width:min(70vw,820px);aspect-ratio:2400/1372;right:-6%;top:50%;transform:translateY(-50%);background:url("assets/globe.jpg") center/contain no-repeat;mix-blend-mode:screen;opacity:.85;animation:globe-breathe 18s ease-in-out infinite alternate}
+.sourcing{background:#20211f url("assets/globe.jpg") center/cover no-repeat;position:relative}.sourcing:before{content:"";position:absolute;inset:0;background:linear-gradient(135deg, rgba(32,33,31,.92) 0%, rgba(32,33,31,.75) 50%, rgba(32,33,31,.85) 100%);z-index:0}
 .sourcing>*{position:relative;z-index:1}
 @keyframes globe-breathe{from{translate:0 0}to{translate:0 -9px}}
 @media(max-width:980px){.sourcing:before{width:620px;right:-24%;opacity:.48}.map-frame{height:250px}}
