@@ -113,3 +113,58 @@ html[dir="rtl"] .hero h1{min-height:0;line-height:1.22;margin:28px 0 20px}
 .contact-close h2 em{color:#20211f}
 .contact-close h2 em{color:#20211f!important}
 html[dir="rtl"] .contact-close h2 em{color:#20211f!important}
+
+/* Fix RTL hero: flip columns so text is on the right, image on the left */
+html[dir="rtl"] .hero{grid-template-columns:1.04fr 1fr}
+html[dir="rtl"] .hero-copy{grid-column:2}
+html[dir="rtl"] .hero-visual{grid-column:1}
+
+/* ===== Font size fixes ===== */
+.announcement{font-size:12px}
+.brand-copy small{font-size:10px}
+.main-nav a{font-size:13px}
+.language-toggle{font-size:13px}
+.eyebrow{font-size:10px}
+.hero-lede{font-size:15px}
+.hero-bottom{font-size:9px}
+.breadcrumb{font-size:11px}
+.section-kicker{font-size:10px}
+.vision-band p{font-size:12px}
+.home-products p{font-size:13px}
+.brand-rail-copy small{font-size:11px}
+.footer-about>p{font-size:12px}
+.footer-heading{font-size:10px}
+.footer-column>a{font-size:12px}
+.footer-contact>span:not(.footer-heading){font-size:10px}
+.footer-bottom{font-size:9px}
+.footer-location{font-size:10px}
+.footer-whatsapp{font-size:11px}
+.contact-lede{font-size:13px}
+.phone-list small{font-size:9px}
+.location-card small{font-size:9px}
+.location-card b{font-size:13px}
+.enquiry-head{font-size:10px}
+.enquiry-panel>p{font-size:12px}
+.enquiry-form label{font-size:11px}
+.enquiry-form input,.enquiry-form select,.enquiry-form textarea{font-size:12px}
+.map-heading .section-kicker{font-size:10px}
+.map-heading .text-link{font-size:11px}
+.story-copy>p,.docs-grid p{font-size:14px}
+.principle-grid p{font-size:12px}
+.principle-grid article>span{font-size:11px}
+.principle-grid h3{font-size:16px}
+.catalogue-copy>span{font-size:10px}
+.catalogue-copy p{font-size:12px}
+.catalogue-image>span{font-size:10px}
+.region-strip{font-size:11px}
+.dropdown-panel a{font-size:12px}
+.card-num{font-size:11px}
+.solution-card p{font-size:12px}
+.contact p{font-size:13px}
+.contact-alt{font-size:12px}
+.contact-phone{font-size:13px}
+.brand-copy b{font-size:18px}
+.caption-index{font-size:10px}
+.hero-image-caption{font-size:9px}
+.hero-vertical{font-size:9px}
+.hero-stamp{font-size:9px}
