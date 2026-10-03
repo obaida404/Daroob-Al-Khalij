@@ -238,12 +238,12 @@
     if (nextBtn) nextBtn.addEventListener('click', () => showSlide(active + 1));
     [...dots.children].forEach((dot, i) => dot.addEventListener('click', () => showSlide(i)));
     const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    let timer = reducedMotion ? null : window.setInterval(() => showSlide(active + 1), 6500);
+    let timer = reducedMotion ? null : window.setInterval(() => showSlide(active + 1), 4000);
     const pauseSlides = () => { if (timer) { clearInterval(timer); timer = null; } };
     const resumeSlides = () => {
       if (reducedMotion) return;
       pauseSlides();
-      timer = window.setInterval(() => showSlide(active + 1), 6500);
+      timer = window.setInterval(() => showSlide(active + 1), 4000);
     };
     // Only pause on hover for devices that actually have hover (not touch)
     if (window.matchMedia('(hover: hover)').matches) {

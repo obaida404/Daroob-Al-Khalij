@@ -31,9 +31,9 @@ html[dir="rtl"] .main-nav .nav-link:hover:after,html[dir="rtl"] .main-nav .nav-l
 .header-cta{background:var(--red);border:1px solid var(--red);color:#fff;min-height:43px;padding:0 17px;gap:15px;box-shadow:0 5px 14px #e4473520}
 .header-cta:hover{background:var(--red-dark);border-color:var(--red-dark);box-shadow:0 8px 18px #e4473530}
 .hero{grid-template-rows:minmax(535px,1fr) 55px}
-.hero-copy{min-height:535px}
+.hero-copy{min-height:460px}
 .hero h1{min-height:3.8em}
-.hero-visual{height:535px;min-height:535px;align-self:stretch}
+.hero-visual{height:460px;min-height:460px;align-self:stretch}
 .hero-photo{background:#e4e3dd}
 .hero-photo img{object-fit:contain;object-position:center;background:#e4e3dd;filter:saturate(.82)}
 .photo-shade{background:linear-gradient(180deg,rgba(16,19,17,0) 60%,rgba(17,19,17,.48) 100%)}
