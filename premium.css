@@ -31,7 +31,7 @@ html[dir="rtl"] .main-nav .nav-link:hover:after,html[dir="rtl"] .main-nav .nav-l
 .hero{grid-template-rows:minmax(535px,1fr) 55px}
 .hero-copy{min-height:535px}
 .hero h1{min-height:3.8em}
-.hero-visual{height:535px;min-height:535px;align-self:start}
+.hero-visual{height:535px;min-height:535px;align-self:stretch}
 .hero-photo{background:#e4e3dd}
 .hero-photo img{object-fit:contain;object-position:center;background:#e4e3dd;filter:saturate(.82)}
 .photo-shade{background:linear-gradient(180deg,rgba(16,19,17,0) 60%,rgba(17,19,17,.48) 100%)}
@@ -194,5 +194,169 @@ html[dir="rtl"] .hero .eyebrow,html[dir="rtl"] .hero-note,html[dir="rtl"] .hero-
 .inner-page .page-hero .section-kicker{color:rgba(255,255,255,.85)}
 .inner-page .page-hero .section-kicker>span:first-child{color:#ff9d8b}
 .inner-page .page-hero .kicker-rule{background:#ff9d8b}
-.skip-link{position:absolute;left:-9999px;top:0;background:var(--dark);color:#fff;padding:10px 16px;z-index:100;text-decoration:none;font-size:14px}
-.skip-link:focus{position:fixed;left:0;top:0}
+.skip-link{position:absolute;width:1px;height:1px;overflow:hidden;white-space:nowrap;clip-path:inset(50%);background:var(--dark);color:#fff;padding:10px 16px;z-index:100;text-decoration:none;font-size:14px}
+.skip-link:focus{position:fixed;left:0;top:0;width:auto;height:auto;overflow:visible;white-space:normal;clip-path:none}
+
+/* ============================================================
+   MOBILE FIXES (<=720px)
+   Consolidated so these win over the earlier scattered overrides.
+   ============================================================ */
+@media(max-width:720px){
+  /* Hero visual must fill the column; align-self:start collapsed it to 0 width. */
+  .hero-visual{align-self:stretch;width:100%}
+  .hero-photo{inset:0 0 44px 0}
+  .hero-photo img{object-fit:cover;object-position:center 40%}
+
+  /* Carousel controls live in the strip under the photo. */
+  .hero-controls,.hero-visual .hero-controls{left:50%;right:auto;bottom:2px;transform:translateX(-50%)}
+  html[dir="rtl"] .hero-controls,html[dir="rtl"] .hero-visual .hero-controls{left:50%;right:auto;transform:translateX(-50%)}
+  .hero-controls>button{height:40px;width:40px;font-size:15px}
+  .hero-dots button{height:10px;width:22px}
+  .hero-dots button[aria-current="true"]{width:34px}
+
+  /* Stamp was clipped off the left edge; tuck it inside the image. */
+  .hero-stamp{left:auto;right:10px;top:10px;width:88px;height:88px;font-size:8px;transform:rotate(6deg)}
+  html[dir="rtl"] .hero-stamp{left:10px;right:auto}
+  .stamp-icon{font-size:24px}
+  .stamp-icon span{font-size:13px}
+
+  /* Vertical label overlapped the artwork at narrow widths. */
+  .hero-vertical{display:none}
+
+  /* Caption sat outside the photo once insets changed. */
+  .hero-image-caption{left:16px;right:16px;bottom:56px;font-size:9px}
+
+  /* --- Touch targets: minimum 44x44 --- */
+  .menu-toggle{width:44px;height:44px}
+  .language-toggle{min-height:44px;padding:10px 8px}
+  .announcement{height:auto;min-height:38px;padding:6px 5%;gap:10px}
+  .announcement a{padding:6px 0;min-height:32px;align-items:center}
+  .hero-actions{flex-wrap:wrap;gap:14px}
+  .button{min-height:48px}
+  .text-link{min-height:44px;align-items:center}
+  .main-nav a{padding:14px 0}
+  .site-footer a,.footer-copy a{display:inline-block;padding:4px 0}
+  .footer-nav a{min-height:40px;display:flex;align-items:center}
+  .card-link,.product-row>a{width:44px;height:44px}
+  .phone-arrow{width:44px;height:44px}
+
+  /* --- Readability: lift the smallest text off 7-9px --- */
+  .eyebrow,.section-kicker{font-size:11px}
+  .hero-bottom{font-size:11px}
+  .hero-note p{font-size:12px}
+  .values-strip div>span:last-child{font-size:11px}
+  .solution-card p,.process-steps p{font-size:11px}
+  .catalogue-copy p,.sourcing-top>p,.sector-card p,.project-note p{font-size:11px}
+  .tag-list span{font-size:11px}
+  .check-list li{font-size:11px}
+  .footer-copy,.site-footer>p{font-size:11px}
+  .breadcrumb{font-size:11px}
+  .region-strip{font-size:11px}
+  .card-num,.product-index,.value-number{font-size:11px}
+  .image-tag{font-size:11px}
+  .vision-label{font-size:12px}
+  .brand-copy small{font-size:10px}
+  .caption-index{font-size:11px}
+}
+
+/* ============================================================
+   MOBILE FIXES round 2: footer, captions, carousel dots
+   ============================================================ */
+@media(max-width:720px){
+  /* Carousel dots: keep the thin visual bar but give a 44px hit area. */
+  .hero-dots{gap:2px}
+  .hero-dots button{height:44px;width:26px;background:transparent;position:relative;border:0;padding:0}
+  .hero-dots button::before{content:"";position:absolute;left:2px;right:2px;top:50%;
+    transform:translateY(-50%);height:4px;background:#ffffff8a;border-radius:2px}
+  .hero-dots button[aria-current="true"]{width:38px;background:transparent}
+  .hero-dots button[aria-current="true"]::before{background:#fff;height:5px}
+  .hero-visual .hero-controls{bottom:0}
+  .hero-photo{inset:0 0 50px 0}
+
+  /* Footer: readable text and comfortable link targets.
+     Selectors mirror the top-level rules so they actually win. */
+  .footer-heading{font-size:11px;letter-spacing:.14em}
+  .footer-column>a:not(.footer-whatsapp){font-size:13px;line-height:1.5}
+  .footer-column>a{min-height:44px;display:flex;align-items:center}
+  .footer-column>span{font-size:13px}
+  .footer-contact>span:not(.footer-heading){font-size:12px;margin-top:0}
+  .footer-bottom span,.footer-bottom span>span{font-size:11px}
+  .footer-about p{font-size:13px;line-height:1.7}
+  .site-footer{grid-template-columns:1fr;gap:18px}
+  .footer-main{display:grid;grid-template-columns:1fr;gap:22px}
+  .footer-copy{font-size:11px}
+
+  /* Captions / small labels that were 7-9px. */
+  .hero-image-caption span{font-size:11px}
+  .solution-foot span{font-size:11px}
+  .solution-foot .text-link{font-size:12px;min-height:44px}
+  .brand-rail-copy span{font-size:11px}
+  .contact-bottom span{font-size:11px}
+  .contact-alt a{font-size:12px;min-height:44px;display:inline-flex;align-items:center}
+  .brand-copy small{font-size:11px}
+  .footer-location span{font-size:11px}
+
+  /* Vision-band CTA and announcement link. */
+  .vision-band .vision-source{font-size:12px;min-height:44px;display:inline-flex;align-items:center}
+  .announcement a{min-height:44px}
+  .menu-toggle{width:44px;min-width:44px;height:44px}
+
+  /* Section rhythm: tighten oversized mobile padding. */
+  .section-pad{padding-left:5%;padding-right:5%}
+  .contact-card{padding:36px 5% 30px}
+  .enquiry-panel{padding:24px 5%}
+  .hero-bottom{gap:10px;flex-wrap:wrap}
+}
+
+/* ============================================================
+   MOBILE FIXES round 3: inner-page labels, body copy, breadcrumbs
+   Selectors mirror the originals so specificity matches.
+   ============================================================ */
+@media(max-width:720px){
+  /* Service / catalogue labels */
+  .service-copy>p{font-size:13px}
+  .service-visual .visual-count{font-size:11px}
+  .service-extras .extras-grid article>span{font-size:11px}
+  .service-extras .extras-grid article>p{font-size:12px}
+  .catalogue-copy>span{font-size:11px}
+  .catalogue-image>span{font-size:11px}
+  .catalogue-copy p{font-size:13px}
+  .page-end>div>span{font-size:11px;letter-spacing:.1em}
+  .phone-list article>div>a{min-height:44px;display:inline-flex;align-items:center}
+  .vision-feature p{font-size:13px}
+  .vision-feature .vision-source{font-size:12px;min-height:44px;display:inline-flex;align-items:center}
+  .breadcrumb,.breadcrumb a,.breadcrumb span{font-size:12px}
+  .breadcrumb a{min-height:44px;display:inline-flex;align-items:center}
+
+  /* Contact page: labels and form text were 8-9px */
+  .phone-list article>div>small{font-size:12px}
+  .location-card small{font-size:12px}
+  .contact-map .section-kicker{font-size:11px}
+  .enquiry-head>span{font-size:11px}
+  #enquiry-form label{font-size:13px}
+  #enquiry-form input,#enquiry-form select,#enquiry-form textarea{font-size:16px;min-height:48px}
+  #enquiry-form select{min-height:48px}
+  .form-note{font-size:12px;line-height:1.6}
+  .contact-lede{font-size:13px}
+  .phone-list article>div>a{font-size:15px}
+  .map-frame{min-height:260px}
+
+  /* Products page body copy */
+  .sourcing-top>p,.sourcing p{font-size:13px}
+  .region-strip{font-size:11px}
+  .source-note p{font-size:12px}
+  .product-row p{font-size:12px}
+  .product-row h3{font-size:14px}
+
+  /* Sectors */
+  .sector-card h3{font-size:14px}
+  .sector-card p{font-size:12px}
+  .project-note p{font-size:13px}
+  .project-year{font-size:34px}
+
+  /* General body copy floor */
+  .story-copy>p,.docs-grid p,.sector-intro-copy>p,.principles p{font-size:13px}
+  .principle-grid p{font-size:12px}
+  .solution-card p{font-size:12px}
+  .process-steps p{font-size:12px}
+}
