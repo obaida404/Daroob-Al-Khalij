@@ -210,7 +210,7 @@ html[dir="rtl"] .hero .eyebrow,html[dir="rtl"] .hero-note,html[dir="rtl"] .hero-
   /* Carousel controls live in the strip under the photo. */
   .hero-controls,.hero-visual .hero-controls{left:50%;right:auto;bottom:2px;transform:translateX(-50%)}
   html[dir="rtl"] .hero-controls,html[dir="rtl"] .hero-visual .hero-controls{left:50%;right:auto;transform:translateX(-50%)}
-  .hero-controls>button{height:40px;width:40px;font-size:15px}
+  .hero-controls>button{height:44px;width:44px;font-size:16px}
   .hero-dots button{height:10px;width:22px}
   .hero-dots button[aria-current="true"]{width:34px}
 
