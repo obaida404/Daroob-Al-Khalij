@@ -1,4 +1,6 @@
 (() => {
+  'use strict';
+
   const logo = `<span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 52 52"><path d="M29.8 5.4C35 13.1 23.5 16 25.4 24c1.1 4.5 5.1 5.7 5.1 11.2 0 4.7-3.3 8.7-8.4 10.1 2.1-3.3 1-6.5-.9-8.7-1.9-2.4-4-4.6-3.6-8.5-6 5-7.9 11.7-4.9 17.6C5.2 41.4 4 32.5 8.3 25.5 13 17.9 23.1 14.5 29.8 5.4Z" fill="currentColor"/><path d="M37.7 8.5c9.7 5.3 13 16.1 9.4 25.7-3.2 8.8-11.4 14.5-21 14.5h-4.2c8.5-2.3 14.6-7.3 16.8-14.1 2-6.2.2-12.3-5.4-18.4l4.4-7.7Z" fill="currentColor" opacity=".78"/></svg></span>`;
   const brand = `<a class="brand" href="index.html" aria-label="Daroob Al-Khalij home">${logo}<span class="brand-copy"><b data-en="DAROOB" data-ar="دروب الخليج">DAROOB</b><small data-en="AL-KHALIJ · SAFETY &amp; FIRE" data-ar="السلامة والحريق">AL-KHALIJ · SAFETY &amp; FIRE</small></span></a>`;
 
@@ -6,8 +8,8 @@
     <div class="announcement"><span data-en="Safety built around your operations." data-ar="السلامة المصممة لتلائم أعمالكم.">Safety built around your operations.</span><a href="contact.html" data-en="Talk to our team ↗" data-ar="تواصل مع فريقنا ↗">Talk to our team ↗</a></div>
     <header class="site-header">
       ${brand}
-      <button class="menu-toggle" aria-label="Open navigation" aria-expanded="false"><span></span><span></span></button>
-      <nav class="main-nav" aria-label="Main navigation">
+      <button class="menu-toggle" aria-label="Open navigation" aria-expanded="false" aria-controls="main-nav"><span></span><span></span></button>
+      <nav class="main-nav" id="main-nav" aria-label="Main navigation">
         <a class="nav-link" href="index.html" data-page-link="home" data-en="Home" data-ar="الرئيسية">Home</a>
         <a class="nav-link" href="about.html" data-page-link="about" data-en="About" data-ar="من نحن">About</a>
         <div class="nav-dropdown"><div class="nav-menu-wrap"><a class="nav-link" href="solutions.html" data-page-link="solutions" data-en="Solutions" data-ar="حلولنا">Solutions</a><button class="submenu-toggle" aria-label="Show solution pages" aria-expanded="false">⌄</button></div><div class="dropdown-panel"><a href="solutions.html#fire" data-en="Fire alarm & suppression" data-ar="إنذار الحريق ومكافحته">Fire alarm &amp; suppression</a><a href="solutions.html#maintenance" data-en="Installation & maintenance" data-ar="التركيب والصيانة">Installation &amp; maintenance</a><a href="solutions.html#security" data-en="Security systems" data-ar="أنظمة الأمن">Security systems</a><a href="solutions.html#ppe" data-en="Workplace safety" data-ar="سلامة مكان العمل">Workplace safety</a></div></div>
@@ -18,7 +20,9 @@
       <div class="header-actions"><button class="language-toggle" type="button" aria-label="Switch to Arabic"><span class="lang-label">العربية</span><span class="lang-globe" aria-hidden="true">◎</span></button><a class="button button-dark header-cta" href="contact.html"><span data-en="Discuss a project" data-ar="ناقش مشروعك">Discuss a project</span><span aria-hidden="true">↗</span></a></div>
     </header>`);
 
-  document.querySelector('#site-footer')?.insertAdjacentHTML('beforebegin', `
+  const footerEl = document.querySelector('#site-footer');
+  if (footerEl) {
+    footerEl.insertAdjacentHTML('beforebegin', `
     <footer class="site-footer">
       <div class="footer-main">
         <div class="footer-about">${brand}<p data-en="A Riyadh-based Saudi company delivering fire protection, security systems and workplace safety equipment for organizations across sectors." data-ar="شركة سعودية مقرها الرياض، تقدم حلول الحماية من الحريق وأنظمة الأمن ومعدات سلامة بيئة العمل للمنشآت في مختلف القطاعات.">A Riyadh-based Saudi company delivering fire protection, security systems and workplace safety equipment for organizations across sectors.</p><span class="footer-location"><i></i><span data-en="RIYADH, SAUDI ARABIA" data-ar="الرياض، المملكة العربية السعودية">RIYADH, SAUDI ARABIA</span></span></div>
@@ -28,6 +32,7 @@
       </div>
       <div class="footer-bottom"><span>© <span id="year"></span> DAROOB AL-KHALIJ · <span data-en="ALL RIGHTS RESERVED" data-ar="جميع الحقوق محفوظة">ALL RIGHTS RESERVED</span></span><span data-en="PREPAREDNESS, BUILT TOGETHER." data-ar="الاستعداد نبنيه معًا.">PREPAREDNESS, BUILT TOGETHER.</span></div>
     </footer>`);
+  }
   document.getElementById('year').textContent = new Date().getFullYear();
 
   const html = document.documentElement;
@@ -47,7 +52,8 @@
     const arabic = language === 'ar';
     html.lang = arabic ? 'ar' : 'en';
     html.dir = arabic ? 'rtl' : 'ltr';
-    document.title = titles[page][arabic ? 1 : 0];
+    const pageTitle = titles[page] || titles.home;
+    document.title = pageTitle[arabic ? 1 : 0];
     document.querySelector('meta[name="description"]')?.setAttribute('content', arabic
       ? 'دروب الخليج توفر أنظمة الحماية من الحريق وحلول السلامة ومعدات السلامة الصناعية للمنشآت في المملكة العربية السعودية.'
       : 'Daroob Al-Khalij provides fire protection, safety systems, and industrial safety products for businesses across Saudi Arabia.');
@@ -74,7 +80,11 @@
     document.querySelectorAll('.submenu-toggle').forEach((button) => {
       button.setAttribute('aria-label', arabic ? 'عرض الصفحات' : 'Show pages');
     });
-    localStorage.setItem('daroob-language', language);
+    try {
+      localStorage.setItem('daroob-language', language);
+    } catch (e) {
+      // localStorage unavailable (private browsing, quota exceeded)
+    }
     if (updateUrl) {
       const url = new URL(location.href);
       url.searchParams.set('lang', language);
@@ -86,7 +96,8 @@
 
   // Restore the user's language across all pages while allowing direct language links.
   const queryLanguage = new URLSearchParams(location.search).get('lang');
-  const initialLanguage = queryLanguage || localStorage.getItem('daroob-language') || 'en';
+  const storedLanguage = localStorage.getItem('daroob-language');
+  const initialLanguage = queryLanguage || (storedLanguage === 'ar' || storedLanguage === 'en' ? storedLanguage : null) || 'en';
   setLanguage(initialLanguage, Boolean(queryLanguage));
   document.querySelectorAll('.main-nav a,.brand,.header-cta').forEach((link) => {
     link.addEventListener('click', (event) => {
@@ -144,7 +155,7 @@
     const slides = [
       { image: 'assets/safety-worker.png', alt: ['Safety professional at work on site', 'مختص سلامة يعمل في موقع صناعي'], tag: ['FIRE PROTECTION · INDUSTRIAL SAFETY · SUPPLY', 'الحماية من الحريق · السلامة الصناعية · التوريد'], heading: ['Safety that stands<br>ready for <em>what’s next.</em>', 'سلامةٌ مستعدة<br>لـ <em>كل ما هو قادم</em>'], text: ['Fire protection systems, safety equipment and dependable service for the places where business happens.', 'أنظمة الحماية من الحريق ومعدات السلامة والخدمات الموثوقة للمنشآت التي تحتضن أعمالكم.'], caption: ['PROTECTION THAT WORKS IN THE REAL WORLD', 'حماية تلبي متطلبات الواقع'] },
       { image: 'assets/alarm-system.png', alt: ['Fire alarm panel and detection devices', 'لوحة إنذار حريق وأجهزة كشف'], tag: ['FIRE ALARM · DETECTION · SUPPRESSION', 'إنذار الحريق · الكشف · الإخماد'], heading: ['Detect early.<br>Respond with <em>confidence.</em>', 'اكتشف مبكرًا<br>واستجب <em>بثقة</em>'], text: ['Fire alarm and suppression systems selected for the needs of commercial and industrial spaces.', 'أنظمة إنذار وإخماد مختارة لتناسب احتياجات المنشآت التجارية والصناعية.'], caption: ['SYSTEMS FOR A SAFER RESPONSE', 'أنظمة لاستجابة أكثر أمانًا'] },
-      { image: 'assets/cctv-hero.png', alt: ['CCTV camera included in Daroob company materials', 'كاميرا مراقبة ضمن مواد شركة دروب الخليج'], tag: ['SECURITY · ACCESS · SAFETY', 'الأمن · التحكم بالدخول · السلامة'], heading: ['The right systems<br>make safer work <em>possible.</em>', 'الأنظمة المناسبة<br>تمكّن عملًا <em>أكثر أمانًا</em>'], text: ['From CCTV and access control to PPE and site supplies, Daroob brings essential safety needs together.', 'من كاميرات المراقبة والتحكم بالدخول إلى معدات الوقاية ومستلزمات المواقع، تجمع دروب الخليج احتياجات السلامة الأساسية.'], caption: ['PRACTICAL SOLUTIONS FOR EVERY SITE', 'حلول عملية لكل منشأة'] }
+      { image: 'assets/cctv-hero.png', alt: ['CCTV security camera mounted on a wall', 'كاميرا مراقبة مثبتة على جدار'], tag: ['SECURITY · ACCESS · SAFETY', 'الأمن · التحكم بالدخول · السلامة'], heading: ['The right systems<br>make safer work <em>possible.</em>', 'الأنظمة المناسبة<br>تمكّن عملًا <em>أكثر أمانًا</em>'], text: ['From CCTV and access control to PPE and site supplies, Daroob brings essential safety needs together.', 'من كاميرات المراقبة والتحكم بالدخول إلى معدات الوقاية ومستلزمات المواقع، تجمع دروب الخليج احتياجات السلامة الأساسية.'], caption: ['PRACTICAL SOLUTIONS FOR EVERY SITE', 'حلول عملية لكل منشأة'] }
     ];
     const copy = hero.querySelector('.hero-copy');
     const image = hero.querySelector('.hero-photo img');
@@ -154,16 +165,19 @@
     const heading = hero.querySelector('h1');
     const text = hero.querySelector('.hero-lede');
     const visual = hero.querySelector('.hero-visual');
+    if (!copy || !image || !counter || !caption || !tag || !heading || !text || !visual) return;
     let active = 0;
+    let slideTimeout = null;
     visual.insertAdjacentHTML('beforeend', '<div class="hero-controls"><button class="hero-prev" aria-label="Previous slide">←</button><span class="hero-dots"></span><button class="hero-next" aria-label="Next slide">→</button></div>');
     const dots = visual.querySelector('.hero-dots');
     slides.forEach((_, i) => dots.insertAdjacentHTML('beforeend', `<button aria-label="Slide ${i + 1}" aria-current="${i === 0 ? 'true' : 'false'}"></button>`));
     function showSlide(i) {
+      if (slideTimeout) clearTimeout(slideTimeout);
       active = (i + slides.length) % slides.length;
       const slide = slides[active];
       const langIndex = html.lang === 'ar' ? 1 : 0;
       image.classList.add('image-changing');
-      window.setTimeout(() => {
+      slideTimeout = setTimeout(() => {
         image.src = slide.image;
         image.alt = slide.alt[langIndex];
         tag.textContent = slide.tag[langIndex];
@@ -175,13 +189,17 @@
       }, 170);
       [...dots.children].forEach((dot, idx) => dot.setAttribute('aria-current', String(idx === active)));
     }
-    visual.querySelector('.hero-prev').addEventListener('click', () => showSlide(active - 1));
-    visual.querySelector('.hero-next').addEventListener('click', () => showSlide(active + 1));
+    const prevBtn = visual.querySelector('.hero-prev');
+    const nextBtn = visual.querySelector('.hero-next');
+    if (prevBtn) prevBtn.addEventListener('click', () => showSlide(active - 1));
+    if (nextBtn) nextBtn.addEventListener('click', () => showSlide(active + 1));
     [...dots.children].forEach((dot, i) => dot.addEventListener('click', () => showSlide(i)));
-    let timer = window.setInterval(() => showSlide(active + 1), 6500);
-    const pauseSlides = () => window.clearInterval(timer);
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    let timer = reducedMotion ? null : window.setInterval(() => showSlide(active + 1), 6500);
+    const pauseSlides = () => { if (timer) { clearInterval(timer); timer = null; } };
     const resumeSlides = () => {
-      window.clearInterval(timer);
+      if (reducedMotion) return;
+      pauseSlides();
       timer = window.setInterval(() => showSlide(active + 1), 6500);
     };
     hero.addEventListener('mouseenter', pauseSlides);
