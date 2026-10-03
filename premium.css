@@ -468,7 +468,7 @@ html[dir="rtl"] .hero .eyebrow,html[dir="rtl"] .hero-note,html[dir="rtl"] .hero-
 @media(max-width:720px){.wa-float{bottom:18px;right:18px;width:50px;height:50px}.wa-float svg{width:24px;height:24px}}
 
 /* Catalog download section */
-.catalog-download{background:var(--ink);color:#fff;text-align:center;padding:100px 5%}
+.catalog-download{background:var(--ink) url("assets/catalog-bg.jpg") center/cover no-repeat;color:#fff;text-align:center;padding:100px 5%;position:relative}.catalog-download:before{content:"";position:absolute;inset:0;background:linear-gradient(180deg, rgba(32,33,31,.88) 0%, rgba(32,33,31,.78) 50%, rgba(32,33,31,.88) 100%);z-index:0}.catalog-download>*{position:relative;z-index:1}
 .catalog-download .section-kicker{justify-content:center}
 .catalog-download .section-kicker span{color:#fff}
 .catalog-download .kicker-rule{background:rgba(255,255,255,.3)}
