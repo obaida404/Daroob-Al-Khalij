@@ -394,3 +394,67 @@ html[dir="rtl"] .hero .eyebrow,html[dir="rtl"] .hero-note,html[dir="rtl"] .hero-
   .announcement{font-size:12px}
   .announcement a{font-size:12px}
 }
+
+/* ============================================================
+   READABILITY FLOOR (all viewports)
+   The editorial label style used 7-10px type, which is below a
+   comfortable reading size. Raised to 11px+ while keeping the
+   letter-spacing that gives these labels their character.
+   Appended last so equal-specificity rules resolve here.
+   ============================================================ */
+.vision-emblem span{font-size:11px}
+.vision-label{font-size:12px}
+.page-end>div>span{font-size:11px}
+.service-visual .visual-count{font-size:11px}
+.tag-list span{font-size:11px}
+.extras-grid article>span{font-size:11px}
+.catalogue-image>span{font-size:11px}
+.catalogue-copy>span{font-size:11px}
+.enquiry-head{font-size:11px}
+.form-note{font-size:11px;line-height:1.6}
+.footer-location{font-size:11px}
+.footer-heading{font-size:11px}
+.footer-contact>span:not(.footer-heading){font-size:11px}
+.footer-bottom{font-size:11px}
+.brand-rail-copy>span{font-size:11px}
+.brand-rail-copy small{font-size:11px}
+.map-heading .section-kicker{font-size:11px}
+.map-heading .text-link{font-size:11px}
+.phone-list small,.location-card small{font-size:11px}
+.phone-icon{font-size:11px}
+.sector-card>span{font-size:11px}
+.sector-card p{font-size:12px}
+.region-strip{font-size:11px}
+.principle-grid article>span{font-size:11px}
+.principle-grid p{font-size:12px}
+.breadcrumb{font-size:11px}
+.breadcrumb a,.breadcrumb span{font-size:11px}
+.vision-source{font-size:11px}
+.eyebrow,.section-kicker{font-size:11px}
+.hero-bottom{font-size:11px}
+.caption-index{font-size:11px}
+.hero-image-caption{font-size:11px}
+.brand-copy small{font-size:11px}
+.dropdown-panel a{font-size:11px}
+.check-list li{font-size:12px}
+.extras-grid p{font-size:12px}
+.catalogue-copy p{font-size:12px}
+.vision-band p{font-size:12px}
+.footer-about>p{font-size:12px}
+.footer-column>a:not(.footer-whatsapp){font-size:12px}
+.footer-whatsapp{font-size:11px}
+.enquiry-panel>p{font-size:12px}
+#enquiry-form label{font-size:12px}
+#enquiry-form input,#enquiry-form select,#enquiry-form textarea{font-size:15px}
+
+/* Final readability pass: the last few sub-11px items. */
+.story-image .image-tag,.image-tag{font-size:11px}
+.hero-vertical{font-size:11px}
+.hero-note p{font-size:12px}
+.hero-image-caption{font-size:11px}
+.hero-image-caption span{font-size:11px}
+.solution-foot{font-size:11px}
+.solution-foot .text-link{font-size:12px}
+.contact-bottom{font-size:11px}
+.contact-alt{font-size:12px}
+.contact-alt a{font-size:12px}
