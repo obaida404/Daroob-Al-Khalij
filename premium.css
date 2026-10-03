@@ -175,19 +175,24 @@ html[dir="rtl"] .hero .eyebrow,html[dir="rtl"] .hero-note,html[dir="rtl"] .hero-
 .site-header.is-scrolled .brand-logo-img{height:46px}
 .site-footer .brand-logo-img{background:#fff;border-radius:10px;padding:7px 11px;height:46px}
 
-/* Background images for sections */
-.bg-firefighter{background-image:url("assets/bg-firefighter.jpg");background-size:cover;background-position:center}
-.bg-industrial{background-image:url("assets/bg-industrial.jpg");background-size:cover;background-position:center}
-.bg-extinguisher{background-image:url("assets/bg-extinguisher.jpg");background-size:cover;background-position:center}
-.bg-safety{background-image:url("assets/bg-safety.jpg");background-size:cover;background-position:center}
-.bg-fire-alarm{background-image:url("assets/bg-fire-alarm.jpg");background-size:cover;background-position:center}
-.bg-cctv{background-image:url("assets/bg-cctv.jpg");background-size:cover;background-position:center}
-
-/* Dark overlay for sections with background images */
-.bg-firefighter,.bg-industrial,.bg-extinguisher,.bg-safety,.bg-fire-alarm,.bg-cctv{position:relative}
-.bg-firefighter::before,.bg-industrial::before,.bg-extinguisher::before,.bg-safety::before,.bg-fire-alarm::before,.bg-cctv::before{content:"";position:absolute;inset:0;background:rgba(0,0,0,.6);z-index:0;pointer-events:none}
-.bg-firefighter>*,.bg-industrial>*,.bg-extinguisher>*,.bg-safety>*,.bg-fire-alarm>*,.bg-cctv>*{position:relative;z-index:1}
-/* Vision band keeps its image visible over the red brand colour */
-.vision-band.bg-firefighter{background-image:url("assets/bg-firefighter.jpg");background-size:cover;background-position:center}
+/* Page-hero banner photos: scoped to the top banner of each inner page only,
+   so the rest of the page keeps its original solid backgrounds. */
+.bg-firefighter{--page-bg:url("assets/bg-firefighter.jpg")}
+.bg-industrial{--page-bg:url("assets/bg-industrial.jpg")}
+.bg-extinguisher{--page-bg:url("assets/bg-extinguisher.jpg")}
+.bg-safety{--page-bg:url("assets/bg-safety.jpg")}
+.bg-fire-alarm{--page-bg:url("assets/bg-fire-alarm.jpg")}
+.bg-cctv{--page-bg:url("assets/bg-cctv.jpg")}
+.inner-page .page-hero{position:relative;background-color:#20211f;background-image:var(--page-bg);background-size:cover;background-position:center 38%;padding-top:52px;padding-bottom:86px}
+.inner-page .page-hero::before{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;background:linear-gradient(180deg,rgba(18,20,19,.80),rgba(18,20,19,.64))}
+.inner-page .page-hero>*{position:relative;z-index:1}
+.inner-page .page-hero h1{color:#fff}
+.inner-page .page-hero h1 em{color:#ff9d8b}
+.inner-page .page-hero-grid>p,.inner-page .about-hero-support>p{color:rgba(255,255,255,.88)}
+.inner-page .page-hero .breadcrumb,.inner-page .page-hero .breadcrumb a,.inner-page .page-hero .breadcrumb span{color:rgba(255,255,255,.72)}
+.inner-page .page-hero .breadcrumb a:hover{color:#fff}
+.inner-page .page-hero .section-kicker{color:rgba(255,255,255,.85)}
+.inner-page .page-hero .section-kicker>span:first-child{color:#ff9d8b}
+.inner-page .page-hero .kicker-rule{background:#ff9d8b}
 .skip-link{position:absolute;left:-9999px;top:0;background:var(--dark);color:#fff;padding:10px 16px;z-index:100;text-decoration:none;font-size:14px}
 .skip-link:focus{position:fixed;left:0;top:0}
