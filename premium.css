@@ -184,12 +184,12 @@ html[dir="rtl"] .hero .eyebrow,html[dir="rtl"] .hero-note,html[dir="rtl"] .hero-
 .bg-fire-alarm{--page-bg:url("assets/bg-fire-alarm.jpg")}
 .bg-cctv{--page-bg:url("assets/bg-cctv.jpg")}
 .inner-page .page-hero{position:relative;background-color:#20211f;background-image:var(--page-bg);background-size:cover;background-position:center 38%;padding-top:52px;padding-bottom:86px}
-.inner-page .page-hero::before{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;background:linear-gradient(180deg,rgba(16,18,17,.88),rgba(16,18,17,.70))}
+.inner-page .page-hero::before{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;background:linear-gradient(180deg,rgba(14,16,15,.93),rgba(14,16,15,.82))}
 .inner-page .page-hero>*{position:relative;z-index:1}
 .inner-page .page-hero h1{color:#fff;text-shadow:0 2px 18px rgba(0,0,0,.45)}
 .inner-page .page-hero h1 em{color:#ff9d8b}
 .inner-page .page-hero-grid>p,.inner-page .about-hero-support>p{color:rgba(255,255,255,.94);text-shadow:0 1px 8px rgba(0,0,0,.6)}
-.inner-page .page-hero .breadcrumb,.inner-page .page-hero .breadcrumb a,.inner-page .page-hero .breadcrumb span{color:rgba(255,255,255,.72)}
+.inner-page .page-hero .breadcrumb,.inner-page .page-hero .breadcrumb a,.inner-page .page-hero .breadcrumb span{color:rgba(255,255,255,.88)}
 .inner-page .page-hero .breadcrumb a:hover{color:#fff}
 .inner-page .page-hero .section-kicker{color:rgba(255,255,255,.85)}
 .inner-page .page-hero .section-kicker>span:first-child{color:#ff9d8b}
@@ -359,4 +359,38 @@ html[dir="rtl"] .hero .eyebrow,html[dir="rtl"] .hero-note,html[dir="rtl"] .hero-
   .principle-grid p{font-size:12px}
   .solution-card p{font-size:12px}
   .process-steps p{font-size:12px}
+}
+
+/* ============================================================
+   MOBILE POLISH round 4: header crowding, banner breathing room
+   ============================================================ */
+@media(max-width:720px){
+  /* Header: the wordmark wrapped "FIRE" onto its own line at 390px.
+     Give the brand room and stop the tagline wrapping. */
+  .site-header{padding-left:4%;padding-right:4%}
+  .brand{min-width:0;gap:7px;flex:1 1 auto}
+  .brand-logo-img{height:44px}
+  .site-header.is-scrolled .brand-logo-img{height:40px}
+  .brand-copy{min-width:0}
+  .brand-copy b{font-size:15px;letter-spacing:.06em}
+  .brand-copy small{font-size:11px;letter-spacing:.05em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:150px}
+  .header-actions{gap:2px;flex:0 0 auto}
+  .language-toggle{font-size:11px;letter-spacing:0}
+  .menu-toggle{margin-right:0;margin-left:2px}
+
+  /* Banner: more separation before the first content section. */
+  .inner-page .page-hero{padding-top:44px;padding-bottom:64px}
+  .inner-page .page-hero h1{margin-top:20px}
+  .inner-page .page-hero-grid>p,.inner-page .about-hero-support>p{margin-top:16px}
+  .page-hero+.about-story,.page-hero+.service-detail,.page-hero+.catalogue-grid,
+  .page-hero+.sector-intro,.page-hero+.contact-layout{padding-top:26px}
+  .catalogue-grid{padding-top:26px}
+}
+
+@media(max-width:720px){
+  /* Banner body copy was on the small side for mobile reading. */
+  .inner-page .page-hero-grid>p,.inner-page .about-hero-support>p{font-size:14px;line-height:1.75}
+  .inner-page .page-hero .breadcrumb,.inner-page .page-hero .breadcrumb a,.inner-page .page-hero .breadcrumb span{color:rgba(255,255,255,.9)}
+  .announcement{font-size:12px}
+  .announcement a{font-size:12px}
 }
