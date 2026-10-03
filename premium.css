@@ -478,3 +478,21 @@ html[dir="rtl"] .hero .eyebrow,html[dir="rtl"] .hero-note,html[dir="rtl"] .hero-
 .catalog-actions .button-accent{background:var(--accent);color:#fff}
 .catalog-actions .button-outline{border-color:rgba(255,255,255,.4);color:#fff}
 .catalog-actions .button-outline:hover{background:rgba(255,255,255,.1)}
+
+/* Hero background with logo watermark */
+.hero-copy{position:relative;background:#20211f url("assets/bg-firefighter.jpg") center/cover no-repeat;color:#fff;overflow:hidden}
+.hero-copy:before{content:"";position:absolute;inset:0;background:linear-gradient(180deg, rgba(32,33,31,.92) 0%, rgba(32,33,31,.82) 60%, rgba(32,33,31,.88) 100%);z-index:0}
+.hero-copy:after{content:"";position:absolute;top:24px;right:24px;width:110px;height:75px;background:url("assets/logo.png") center/contain no-repeat;opacity:.14;z-index:0}
+.hero-copy>*{position:relative;z-index:1}
+.hero-copy h1{color:#fff}
+.hero-copy h1 em{color:#ff9d8b}
+.hero-lede{color:rgba(255,255,255,.82)}
+.hero-note p{color:rgba(255,255,255,.72)}
+.hero .eyebrow span{color:rgba(255,255,255,.85)}
+.hero .eyebrow-dot{background:#ff9d8b}
+.hero .text-link{color:#fff}
+.hero .text-link:hover{color:#ff9d8b}
+.hero .text-link .link-arrow{color:#ff9d8b}
+.hero-bottom{color:rgba(255,255,255,.75);background:rgba(32,33,31,.85);padding:14px 50px}
+.hero-bottom .bottom-line{background:rgba(255,255,255,.3)}
+html[dir="rtl"] .hero-copy:after{right:auto;left:24px}
