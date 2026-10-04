@@ -161,7 +161,7 @@
   document.querySelector(`[data-page-link="${page}"]`)?.classList.add('active');
 
   const header = document.querySelector('.site-header');
-  let lastScroll = 0;
+  let lastScroll = window.scrollY;
   window.addEventListener('scroll', () => {
     const y = window.scrollY;
     header.classList.toggle('is-scrolled', y > 32);
