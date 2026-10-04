@@ -59,14 +59,12 @@ html[dir="rtl"] .contact h2{line-height:1.3}
 
 /* Sector card images */
 
-.sector-card{display:flex;flex-direction:column}
 
 /* Sector intro - centered */
 .sector-intro{display:flex;flex-direction:column;align-items:center}.sector-intro-copy{text-align:center;max-width:700px;margin:0 auto}
 .sector-intro{position:relative}
 .sector-intro .section-kicker{position:absolute;top:0;left:0;justify-content:flex-start}
-.sector-intro-copy .section-kicker{justify-content:center}
-.sector-intro-copy .section-kicker .kicker-rule{margin:0}
+.sector-intro-copy .sector-intro-copy .section-kicker .kicker-rule{margin:0}
 
 /* Sector list - 2 column grid */
 .sector-list{display:grid;grid-template-columns:1fr 1fr;gap:32px;margin-top:50px;max-width:1000px;margin-left:auto;margin-right:auto;width:100%}
@@ -83,5 +81,4 @@ html[dir="rtl"] .contact h2{line-height:1.3}
 /* Mobile: single column */
 @media(max-width:720px){
 .sector-list{grid-template-columns:1fr}
-.sector-intro-copy{text-align:center}
 }
