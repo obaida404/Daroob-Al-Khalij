@@ -62,7 +62,9 @@ html[dir="rtl"] .contact h2{line-height:1.3}
 .sector-card{display:flex;flex-direction:column}
 
 /* Sector intro - centered */
-.sector-intro{display:flex;flex-direction:column;align-items:center}.sector-intro-copy{text-align:center;max-width:700px;margin:0 auto;width:100%}
+.sector-intro{display:flex;flex-direction:column;align-items:center}.sector-intro-copy{text-align:center;max-width:700px;margin:0 auto}
+.sector-intro{position:relative}
+.sector-intro .section-kicker{position:absolute;top:0;left:0;justify-content:flex-start}
 .sector-intro-copy .section-kicker{justify-content:center}
 .sector-intro-copy .section-kicker .kicker-rule{margin:0}
 
@@ -70,8 +72,8 @@ html[dir="rtl"] .contact h2{line-height:1.3}
 .sector-list{display:grid;grid-template-columns:1fr 1fr;gap:32px;margin-top:50px;max-width:1000px;margin-left:auto;margin-right:auto;width:100%}
 
 /* Sector card adjustments for grid */
-.sector-card{position:relative;background:#fff;border:1px solid #e0e0e0;border-radius:12px;overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,.06)}
-.sector-card-img{width:100%;height:280px;object-fit:cover}
+.sector-card{position:relative;background:#fff;border:1px solid #e0e0e0;border-radius:12px;overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,.06);display:flex;flex-direction:column}
+.sector-card-img{width:100%;height:280px;object-fit:cover;display:block}
 .sector-card>span{position:absolute;top:12px;right:12px;background:var(--red);color:#fff;width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700}
 .sector-card>div{padding:20px}
 .sector-card h3{font-size:22px;font-weight:700;color:var(--dark);margin-bottom:12px}
