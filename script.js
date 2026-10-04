@@ -280,23 +280,3 @@
   });
 })();
 
-
-// FAQ toggle
-document.querySelectorAll('.faq-q').forEach(btn => {
-    btn.addEventListener('click', () => {
-        const item = btn.closest('.faq-item');
-        const isActive = item.classList.contains('active');
-        
-        // Close all
-        document.querySelectorAll('.faq-item').forEach(i => {
-            i.classList.remove('active');
-            i.querySelector('.faq-q').setAttribute('aria-expanded', 'false');
-        });
-        
-        // Open clicked
-        if (!isActive) {
-            item.classList.add('active');
-            btn.setAttribute('aria-expanded', 'true');
-        }
-    });
-});
