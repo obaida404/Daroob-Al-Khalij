@@ -67,15 +67,15 @@ html[dir="rtl"] .contact h2{line-height:1.3}
 .sector-intro-copy .section-kicker .kicker-rule{margin:0}
 
 /* Sector list - 2 column grid */
-.sector-list{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:40px}
+.sector-list{display:grid;grid-template-columns:1fr 1fr;gap:32px;margin-top:50px;max-width:1000px;margin-left:auto;margin-right:auto}
 
 /* Sector card adjustments for grid */
 .sector-card{position:relative;background:#fff;border:1px solid #e0e0e0;border-radius:12px;overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,.06)}
-.sector-card-img{width:100%;height:200px;object-fit:cover}
+.sector-card-img{width:100%;height:280px;object-fit:cover}
 .sector-card>span{position:absolute;top:12px;right:12px;background:var(--red);color:#fff;width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700}
 .sector-card>div{padding:20px}
-.sector-card h3{font-size:18px;font-weight:700;color:var(--dark);margin-bottom:8px}
-.sector-card p{font-size:13px;color:var(--muted);line-height:1.6;margin:0}
+.sector-card h3{font-size:22px;font-weight:700;color:var(--dark);margin-bottom:12px}
+.sector-card p{font-size:14px;color:var(--muted);line-height:1.7;margin:0}
 .sector-card>b{display:none}
 
 /* Mobile: single column */
