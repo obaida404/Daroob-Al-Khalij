@@ -26,8 +26,8 @@ html[dir="rtl"] body{font-family:var(--arabic);letter-spacing:0}html[dir="rtl"] 
 }
 
 /* Download Section */
-.download-section{background:var(--light);padding-top:0;padding-bottom:80px}
-.download-card{background:#fff;border:1px solid #e0e0e0;border-radius:12px;padding:40px 50px;display:flex;align-items:center;gap:30px;box-shadow:0 2px 12px rgba(0,0,0,.06)}
+.download-section{background:var(--light);padding-top:60px;padding-bottom:80px}
+.download-card{background:#fff;border:1px solid #e0e0e0;border-radius:12px;padding:40px 50px;display:flex;align-items:center;gap:30px;box-shadow:0 2px 12px rgba(0,0,0,.06);margin-top:20px}
 .download-icon{width:56px;height:56px;background:var(--red);border-radius:12px;display:flex;align-items:center;justify-content:center;color:#fff;flex-shrink:0}
 .download-icon svg{width:28px;height:28px}
 .download-content{flex:1;margin-right:20px}
