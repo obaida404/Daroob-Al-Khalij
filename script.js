@@ -195,7 +195,7 @@
   if (hero) {
     const slides = [
       { image: 'assets/hero-firefighter.jpg', alt: ['Firefighter in full gear with hose', 'رجل إطفاء بمعدات كاملة مع خرطوم'], tag: ['FIRE PROTECTION · INDUSTRIAL SAFETY · SUPPLY', 'الحماية من الحريق · السلامة الصناعية · التوريد'], heading: ['Safety that stands<br>ready for <em>what’s next.</em>', 'سلامةٌ مستعدة<br>لـ <em>كل ما هو قادم</em>'], text: ['Fire protection systems, safety equipment and dependable service for the places where business happens.', 'أنظمة الحماية من الحريق ومعدات السلامة والخدمات الموثوقة للمنشآت التي تحتضن أعمالكم.'], caption: ['PROTECTION THAT WORKS IN THE REAL WORLD', 'حماية تلبي متطلبات الواقع'] },
-      { image: 'assets/hero-firefighter2.jpg', alt: ['Firefighter battling flames', 'رجل إطفاء يواجه اللهب'], tag: ['FIRE ALARM · DETECTION · SUPPRESSION', 'إنذار الحريق · الكشف · الإخماد'], heading: ['Detect early.<br>Respond with <em>confidence.</em>', 'اكتشف مبكرًا<br>واستجب <em>بثقة</em>'], text: ['Fire alarm and suppression systems selected for the needs of commercial and industrial spaces.', 'أنظمة إنذار وإخماد مختارة لتناسب احتياجات المنشآت التجارية والصناعية.'], caption: ['SYSTEMS FOR A SAFER RESPONSE', 'أنظمة لاستجابة أكثر أمانًا'] },
+      { image: 'assets/hero-firefighter2.jpg', alt: ['Firefighter battling flames', 'رجل إطفاء يواجه اللهب'], tag: ['FIRE ALARM · DETECTION · SUPPRESSION', 'إنذار الحريق · الكشف · الإخماد'], heading: ['Detect early.<br>Respond with <em>confidence.</em>', 'اكتشف مبكرًا<br>واستجب <em>بثقة</em>'], text: ['Fire alarm and suppression systems for commercial and industrial facilities, with installation and maintenance support.', 'أنظمة إنذار وإخماد مختارة لتناسب احتياجات المنشآت التجارية والصناعية، مع دعم التركيب والصيانة.'], caption: ['SYSTEMS FOR A SAFER RESPONSE', 'أنظمة لاستجابة أكثر أمانًا'] },
       { image: 'assets/cctv-control-room.jpg', alt: ['Security control room with monitors', 'غرفة تحكم أمنية مع شاشات مراقبة'], tag: ['SECURITY · ACCESS · SAFETY', 'الأمن · التحكم بالدخول · السلامة'], heading: ['The right systems<br>make safer work <em>possible.</em>', 'الأنظمة المناسبة<br>تمكّن عملًا <em>أكثر أمانًا</em>'], text: ['From CCTV and access control to PPE and site supplies, Daroob brings essential safety needs together.', 'من كاميرات المراقبة والتحكم بالدخول إلى معدات الوقاية ومستلزمات المواقع، تجمع دروب الخليج احتياجات السلامة الأساسية.'], caption: ['PRACTICAL SOLUTIONS FOR EVERY SITE', 'حلول عملية لكل منشأة'] }
     ];
     // Preload carousel images
@@ -277,6 +277,30 @@
     const waUrl = `https://wa.me/966567817446?text=${encodeURIComponent(lines.join('\n'))}`;
     const waWindow = window.open(waUrl, '_blank', 'noopener');
     if (!waWindow) { window.location.href = waUrl; }
+  });
+})();
+
+// FAQ accordion
+(function () {
+  'use strict';
+  const items = document.querySelectorAll('.faq-item');
+  if (!items.length) return;
+  items.forEach((item) => {
+    const button = item.querySelector('.faq-q');
+    const panel = item.querySelector('.faq-a');
+    if (!button || !panel) return;
+    button.addEventListener('click', () => {
+      const isOpen = item.classList.contains('open');
+      items.forEach((other) => {
+        other.classList.remove('open');
+        const otherButton = other.querySelector('.faq-q');
+        if (otherButton) otherButton.setAttribute('aria-expanded', 'false');
+      });
+      if (!isOpen) {
+        item.classList.add('open');
+        button.setAttribute('aria-expanded', 'true');
+      }
+    });
   });
 })();
 
