@@ -113,7 +113,7 @@
   const queryLanguage = new URLSearchParams(location.search).get('lang');
   let storedLanguage = null;
   try { storedLanguage = localStorage.getItem('daroob-language'); } catch (e) {}
-  const initialLanguage = queryLanguage || (storedLanguage === 'ar' || storedLanguage === 'en' ? storedLanguage : null) || 'en';
+  const initialLanguage = queryLanguage || (storedLanguage === 'ar' || storedLanguage === 'en' ? storedLanguage : null) || 'ar';
   setLanguage(initialLanguage, Boolean(queryLanguage));
   document.querySelectorAll('.main-nav a,.brand,.header-cta').forEach((link) => {
     link.addEventListener('click', (event) => {
