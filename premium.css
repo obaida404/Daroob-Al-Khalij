@@ -116,6 +116,28 @@ html[dir="rtl"] .credential dd{text-align:right}
 .credential-link:hover span[aria-hidden]{transform:translate(2px,-2px)}
 .credential-link span[aria-hidden]{transition:transform .2s ease}
 
+/* ===== Partnership (authorized distributor) ===== */
+.partnership{background:var(--paper);padding-top:80px;padding-bottom:84px}
+.partnership h2{font-family:var(--font-head);font-size:clamp(38px,5vw,64px);line-height:1.04;letter-spacing:-.02em;font-weight:700;margin:34px 0 0}
+.partnership h2 em{font-family:Georgia,serif;font-weight:400;letter-spacing:-.07em;color:var(--red)}
+.partnership-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:7%;margin-top:46px;align-items:start}
+.partnership-brand{background:#fff;border:1px solid #e0e0e0;border-radius:14px;padding:38px 30px;display:flex;flex-direction:column;align-items:center;gap:20px}
+.partnership-brand img{width:100%;max-width:230px;height:auto;object-fit:contain;display:block}
+.partnership-brand span{font-size:12px;letter-spacing:.15em;font-weight:800;color:var(--red);border-top:1px solid #ececec;padding-top:16px;width:100%;text-align:center}
+.partnership-copy p{font-size:15px;line-height:1.9;color:#5c5e58;margin:0}
+.partnership-list{list-style:none;margin:24px 0 0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:12px 26px}
+.partnership-list li{position:relative;padding-left:22px;font-size:14px;line-height:1.65;color:#3c3d39;font-weight:600}
+.partnership-list li:before{content:"";position:absolute;left:0;top:8px;width:8px;height:8px;background:var(--red);border-radius:2px}
+html[dir="rtl"] .partnership-list li{padding-left:0;padding-right:22px}
+html[dir="rtl"] .partnership-list li:before{left:auto;right:0}
+.partnership-facts{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin-top:56px}
+.partnership-facts>div{padding:24px 22px;display:flex;flex-direction:column;gap:7px;border-right:1px solid var(--line)}
+.partnership-facts>div:last-child{border-right:0}
+.partnership-facts b{font-family:var(--font-head);font-size:32px;line-height:1;font-weight:700;color:var(--dark);letter-spacing:-.01em}
+.partnership-facts span{font-size:13px;color:#7c7d78;line-height:1.5}
+@media(max-width:980px){.partnership-grid{grid-template-columns:1fr;gap:34px}.partnership-facts{grid-template-columns:1fr 1fr}.partnership-facts>div:nth-child(2){border-right:0}.partnership-facts>div:nth-child(1),.partnership-facts>div:nth-child(2){border-bottom:1px solid var(--line)}}
+@media(max-width:720px){.partnership-list{grid-template-columns:1fr}.partnership-brand{padding:28px 22px}.partnership-facts b{font-size:26px}}
+
 /* ===== FAQ ===== */
 .faq{background:#e9e8e2;padding-top:80px;padding-bottom:88px}
 .faq h2{font-size:clamp(38px,4.5vw,58px);line-height:1.05;letter-spacing:-.06em;font-weight:600;margin:28px 0 0}
