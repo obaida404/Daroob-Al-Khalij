@@ -164,7 +164,7 @@
   let lastScroll = window.scrollY;
   window.addEventListener('scroll', () => {
     const y = window.scrollY;
-    header.classList.toggle('is-scrolled', y > 32);
+    header.classList.toggle('is-scrolled', y > 40);
     if (y > 220 && y > lastScroll + 5) { header.classList.add('scrolling-down'); header.classList.remove('scrolling-up'); }
     if (y < 150 || y < lastScroll - 5) { header.classList.remove('scrolling-down'); header.classList.add('scrolling-up'); }
     lastScroll = y;
