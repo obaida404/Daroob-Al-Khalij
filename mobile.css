@@ -4,6 +4,67 @@
    Desktop layout is completely unaffected
    ============================================================ */
 
+/* --- Fix announcement bar overlap --- */
+.announcement {
+  min-height: 32px;
+  padding: 4px 5%;
+  font-size: 10px;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.announcement a {
+  gap: 6px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* --- Fix sectors page clipped heading --- */
+.sector-art {
+  margin-top: 0 !important;
+  min-height: 250px !important;
+}
+.sector-content {
+  padding-top: 40px !important;
+}
+
+/* --- Fix solutions page contrast --- */
+.solution-card p {
+  color: #d4d5d0 !important;
+}
+.solution-card h3 {
+  color: #ffffff !important;
+}
+.card-num {
+  color: #d4d5d0 !important;
+}
+.solution-foot {
+  color: #d4d5d0 !important;
+}
+.solution-foot .text-link {
+  color: #ffffff !important;
+}
+
+/* --- Fix contact page spacing --- */
+.contact {
+  padding-top: 0 !important;
+}
+.contact-card {
+  padding: 30px 6% 24px !important;
+}
+
+/* --- Fix footer text cutoff --- */
+.site-footer {
+  padding: 20px 5% !important;
+  min-height: 0 !important;
+}
+.footer-copy {
+  font-size: 11px !important;
+  line-height: 1.6 !important;
+}
+
 @media(max-width:768px) {
   /* --- Base --- */
   html { font-size: 15px; }
