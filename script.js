@@ -24,7 +24,7 @@
 
   const footerEl = document.querySelector('#site-footer');
   if (footerEl) {
-    footerEl.insertAdjacentHTML('beforebegin', `
+    footerEl.innerHTML = `
     <footer class="site-footer">
       <div class="footer-main">
         <div class="footer-about">${brand}<p data-en="A Riyadh-based Saudi company delivering fire protection, security systems and workplace safety equipment for organizations across sectors." data-ar="شركة سعودية مقرها الرياض، تقدم حلول الحماية من الحريق وأنظمة الأمن ومعدات سلامة بيئة العمل للمنشآت في مختلف القطاعات.">A Riyadh-based Saudi company delivering fire protection, security systems and workplace safety equipment for organizations across sectors.</p><span class="footer-location"><i></i><span data-en="RIYADH, SAUDI ARABIA" data-ar="الرياض، المملكة العربية السعودية">RIYADH, SAUDI ARABIA</span></span></div>
@@ -33,7 +33,7 @@
         <div class="footer-column footer-contact"><span class="footer-heading" data-en="TALK TO OUR TEAM" data-ar="تواصل مع فريقنا">TALK TO OUR TEAM</span><a class="footer-primary-phone" href="tel:+966567817446" dir="ltr">+966 56 781 7446</a><span data-en="Fire &amp; safety systems" data-ar="أنظمة الحريق والسلامة">Fire &amp; safety systems</span><a href="tel:+966549544286" dir="ltr">+966 54 954 4286</a><span data-en="Security systems" data-ar="أنظمة الأمن">Security systems</span><a href="https://wa.me/966567817446" target="_blank" rel="noopener" class="footer-whatsapp"><span data-en="WhatsApp our team" data-ar="راسلنا عبر واتساب">WhatsApp our team</span><b>↗</b></a></div>
       </div>
       <div class="footer-bottom"><span>© <span id="year"></span> DAROOB AL-KHALIJ · <span data-en="ALL RIGHTS RESERVED" data-ar="جميع الحقوق محفوظة">ALL RIGHTS RESERVED</span></span><span data-en="PREPAREDNESS, BUILT TOGETHER." data-ar="الاستعداد نبنيه معًا.">PREPAREDNESS, BUILT TOGETHER.</span></div>
-    </footer>`);
+    </footer>`;
   }
   const yearEl = document.getElementById('year');
   if (yearEl) yearEl.textContent = new Date().getFullYear();
